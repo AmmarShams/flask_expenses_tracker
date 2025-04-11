@@ -67,6 +67,21 @@ def update(id):
     
 
 
-    
+@app.route('/filter', methods = ['GET'])
+def filter():
+    selected_category = request.args.get('categorySelect')
+    print("Selected category:", selected_category)
+
+    categories = db.session.query(Expenses.category).distinct().all()
+    filtered_expenses = Expenses.query.filter(Expenses.category == selected_category).all()
+    print(f"Filtered expenses count: {len(filtered_expenses)}")
+
+    return render_template('filter.html', filtered_expenses=filtered_expenses, categories=categories)
+        
+
+
+
+
+
 if __name__ == '__main__':
     app.run(debug=True)

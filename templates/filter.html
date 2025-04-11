@@ -11,7 +11,7 @@
 <div class="container">
    <div class="row">
     <div class="col-md-8 text-center">
-        {% if expenses|length < 1 %}
+        {% if filtered_expenses|length < 1 %}
         <h4>No expenses recorded yet.</h4>
         {% else %}
         <table class="table">
@@ -22,7 +22,7 @@
                 <th>Notes</th>
                 <th>Actions</th>
             </tr>
-            {% for expense in expenses %}
+            {% for expense in filtered_expenses %}
             <tr>
                 <td>{{ expense.amount }}</td>
                 <td>{{ expense.category }}</td>
@@ -76,20 +76,5 @@
     </div>
    </div>
 </div>
-
-<!-- <script>
-    
-    const categorySelect = document.getElementById('categorySelect');
-    const form = document.getElementById('formFilter');
-
-    function updateFormAction() {
-        const selectedCategory = categorySelect.value;
-        form.action = `/filter/${selectedCategory}`;  // Update the form action dynamically
-    }
-
-    categorySelect.addEventListener('change', updateFormAction);
-    updateFormAction(); // Initialize the action on page load
-</script> -->
-
     
 {%endblock%}
