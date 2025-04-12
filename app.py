@@ -76,7 +76,7 @@ def filter():
     filtered_expenses = Expenses.query.filter(Expenses.category == selected_category).all()
     print(f"Filtered expenses count: {len(filtered_expenses)}")
 
-    return render_template('filter.html', filtered_expenses=filtered_expenses, categories=categories)
+    return render_template('index.html', expenses=filtered_expenses, categories=categories)
         
 
 

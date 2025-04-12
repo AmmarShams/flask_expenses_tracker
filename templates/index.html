@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% block content %}{% endblock %}
 
 {%block head%}
 <title>Home</title>
@@ -10,7 +10,7 @@
 <a class="title" href="/"><h1 >Expenses Tracker</h1></a>
 <div class="container">
    <div class="row">
-    <div class="col-md-8 text-center">
+    <div class="col-md-8 text-center">  
         {% if expenses|length < 1 %}
         <h4>No expenses recorded yet.</h4>
         {% else %}
@@ -77,19 +77,6 @@
    </div>
 </div>
 
-<!-- <script>
-    
-    const categorySelect = document.getElementById('categorySelect');
-    const form = document.getElementById('formFilter');
-
-    function updateFormAction() {
-        const selectedCategory = categorySelect.value;
-        form.action = `/filter/${selectedCategory}`;  // Update the form action dynamically
-    }
-
-    categorySelect.addEventListener('change', updateFormAction);
-    updateFormAction(); // Initialize the action on page load
-</script> -->
 
     
 {%endblock%}
